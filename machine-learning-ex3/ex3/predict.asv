@@ -8,8 +8,7 @@ m = size(X, 1);
 num_labels = size(Theta2, 1);
 
 % You need to return the following variables correctly 
-a2 = zeros(size(Theta1, 1), 1);
-a3 = zeros(size(Theta2, 1), 1);
+hid1 = zeros(size(Theta1, 1), 1);
 p = zeros(size(X, 1), 1);
 X = [ones(m, 1) X];
 
@@ -23,11 +22,12 @@ X = [ones(m, 1) X];
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
-a2 = sigmoid(X*Theta1');
-a2 = [ones(m, 1) a2];
-a3 = sigmoid(a2*Theta2');
-
-[prob p] = max(a3,[],2); % Attention for multi-calss task, remember to deal with this!
+size(X)
+size(Theta1)
+size(Theta2)
+hid1 = X*Theta1';
+hid1 = [ones(m, 1) hid1];
+p = hid1*Theta2;
 
 
 
